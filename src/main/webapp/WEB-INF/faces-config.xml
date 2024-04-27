@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<faces-config version="2.0" xmlns="http://java.sun.com/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+    <!--    <factory>-->
+    <!--        <exception-handler-factory>-->
+    <!--            org.francescobasile.guessnumber1.exception.AjaxExceptionHandler$Factory-->
+    <!--        </exception-handler-factory>-->
+    <!--        <exception-handler-factory>-->
+    <!--            org.francescobasile.guessnumber1.exception.BusinessExceptionHandler$Factory-->
+    <!--        </exception-handler-factory>-->
+    <!--    </factory>-->
+    <name>primefaces_rain</name>
+
+    <component>
+        <component-type>org.primefaces.component.RainMenu</component-type>
+        <component-class>org.francescobasile.rain5.component.RainMenu</component-class>
+    </component>
+
+    <render-kit>
+        <renderer>
+            <component-family>org.primefaces.component</component-family>
+            <renderer-type>org.primefaces.component.RainMenuRenderer</renderer-type>
+            <renderer-class>org.francescobasile.rain5.component.RainMenuRenderer</renderer-class>
+        </renderer>
+    </render-kit>
+
+</faces-config>
