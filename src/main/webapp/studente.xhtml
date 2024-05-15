@@ -1,0 +1,103 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="jakarta.faces.html"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="title">Input Components</ui:define>
+
+    <ui:define name="viewname">
+        <li>UI KIT</li>
+        <li><i class="pi pi-chevron-right"></i></li>
+        <li>
+            <p:link outcome="/studente">STUDENTE</p:link>
+        </li>
+    </ui:define>
+
+    <ui:define name="content">
+
+        <p:tooltip/>
+        <p:growl id="growl" showDetail="true"/>
+
+        <div class="grid ui-fluid">
+            <div class="col-12 lg:col-8">
+                <div class="card">
+                    <h5>Registrazione Studente</h5>
+                    <h:form>
+                        <p:outputPanel id="grid">
+                            <div class="field">
+                            <span class="ui-inputtext">
+                                <p:outputLabel for="input-nome" value="Nome"/>
+                                <p:inputText id="input-nome" required="true" requiredMessage="obbligatorio" value="#{studenteViewController.studenteDto.nome}"/>
+                                <p:message id="m_input-nome" for="input-nome"/>
+                            </span>
+                            </div>
+                            <div class="field">
+                            <span class="ui-inputtext">
+                                <p:outputLabel for="input-cognome" value="Cognome"/>
+                                <p:inputText id="input-cognome" required="true" requiredMessage="obbligatorio" value="#{studenteViewController.studenteDto.cognome}"/>
+                                <p:message id="m_input-cognome" for="input-cognome"/>
+                            </span>
+                            </div>
+                            <div class="field">
+                            <span class="ui-inputtext">
+                                <p:outputLabel for="input-email" value="Email"/>
+                                <p:inputText id="input-email" required="true" requiredMessage="obbligatorio"
+                                             value="#{studenteViewController.studenteDto.email}"/>
+                                <p:message id="m_input-email" for="input-email"/>
+                            </span>
+                            </div>
+                            <div class="field">
+                            <span class="ui-inputtext">
+                                <p:outputLabel for="input-matricola" value="Matricola"/>
+                                <p:inputText id="input-matricola" required="true" requiredMessage="obbligatorio"
+                                             value="#{studenteViewController.studenteDto.matricola}"/>
+                                <p:message id="m_input-matricola" for="input-matricola"/>
+                            </span>
+                            </div>
+                        </p:outputPanel>
+                        <p:commandButton id="submit" action="#{studenteViewController.register}" value="Registra"
+                                         styleClass="mr-2 mb-2" update="grid response growl"/>
+                    </h:form>
+                </div>
+            </div>
+            <div class="col-12 lg:col-4">
+                <div class="card">
+                    <p:outputPanel id="response">
+                        <div>
+                        <span class="ui-outputlabel">
+                            <p:outputLabel for="reg-id" value="#{studenteViewController.l_id}"/>
+                        </span>
+                            <h:outputText id="reg-id" value="#{studenteViewController.studente.id}"/>
+                        </div>
+                        <div>
+                        <span class="ui-outputlabel">
+                            <p:outputLabel for="reg-nome" value="#{studenteViewController.l_nome}"/>
+                        </span>
+                            <h:outputText id="reg-nome" value="#{studenteViewController.studente.nome}"/>
+                        </div>
+                        <div>
+                        <span class="ui-outputlabel">
+                            <p:outputLabel for="reg-cognome" value="#{studenteViewController.l_cognome}"/>
+                        </span>
+                            <h:outputText id="reg-cognome" value="#{studenteViewController.studente.cognome}"/>
+                        </div>
+                        <div>
+                        <span class="ui-outputlabel">
+                            <p:outputLabel for="reg-email" value="#{studenteViewController.l_email}"/>
+                        </span>
+                            <h:outputText id="reg-email" value="#{studenteViewController.studente.email}"/>
+                        </div>
+                        <div>
+                        <span class="ui-outputlabel">
+                            <p:outputLabel for="reg-matricola" value="#{studenteViewController.l_matricola}"/>
+                        </span>
+                            <h:outputText id="reg-matricola" value="#{studenteViewController.studente.matricola}"/>
+                        </div>
+                    </p:outputPanel>
+                </div>
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>

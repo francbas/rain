@@ -1,0 +1,101 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="jakarta.faces.html"
+                xmlns:f="jakarta.faces.core"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="title">Registrazione Corsi</ui:define>
+
+    <ui:define name="viewname">
+        <li>UI KIT</li>
+        <li><i class="pi pi-chevron-right"></i></li>
+        <li>
+            <p:link outcome="/iscrizioneappello">Iscrizione Appelli</p:link>
+        </li>
+    </ui:define>
+    <ui:define name="content">
+
+        <p:tooltip/>
+        <p:growl id="growl" showDetail="true"/>
+
+        <div class="grid ui-fluid">
+            <h:form>
+                <div class="col-12 md:col-12">
+                    <div class="card">
+                        <h5>Appelli disponibili</h5>
+                        <p:outputPanel id="grid">
+                            <div class="field">
+                                <span class="ui-inputtext">
+                                    <p:outputLabel for="input-appelliDisponibili" value="Elenco Appelli disponibili"/>
+                                        <p:selectOneMenu id="input-appelliDisponibili" value="#{iscrizioneAppelloViewController.esameDto.selectedId}" filter="true"
+                                                         filterMatchMode="startsWith" required="true" requiredMessage="Selezionare un appello">
+                                            <f:selectItem itemValue="" itemLabel="--selezionare appello--"/>
+                                            <f:selectItems value="#{iscrizioneAppelloViewController.appelliDisponibili}" var="appelloDisponibile"
+                                                           itemLabel="[id#{appelloDisponibile.id}]#{appelloDisponibile.esame.nome}/#{appelloDisponibile.data}/#{appelloDisponibile.esame.docente}"
+                                                           itemValue="#{appelloDisponibile.id}"/>
+                                        </p:selectOneMenu>
+                                    <p:message id="m_appelli" for="input-appelliDisponibili"/>
+                                </span>
+                            </div>
+                        </p:outputPanel>
+                        <p:commandButton id="submit" action="#{iscrizioneAppelloViewController.registra}" value="Registra"
+                                         styleClass="mr-2 mb-2" update="@this grid riepilogo growl"/>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="card">
+                        <h5>Piano degli esami</h5>
+                        <p:outputPanel id="riepilogo">
+                            <p:dataTable value="#{iscrizioneAppelloViewController.currentStudente.esami}" var="appello" paginator="true" rows="10" paginatorPosition="bottom" rowKey="#{appello.id}">
+
+                                <p:ajax event="rowToggle" listener="#{iscrizioneAppelloViewController.onRowToggle}"/>
+
+                                <p:column style="width:2rem">
+                                    <p:rowToggler/>
+                                </p:column>
+
+                                <p:column headerText="Id" sortBy="#{appello.id}">
+                                    <h:outputText value="#{appello.id}"/>
+                                </p:column>
+
+                                <p:column headerText="Esame" sortBy="#{appello.esame.nome}">
+                                    <h:outputText value="#{appello.esame.nome}"/>
+                                </p:column>
+
+                                <p:column headerText="Docente" sortBy="#{appello.esame.docente}">
+                                    <h:outputText value="#{appello.esame.docente}"/>
+                                </p:column>
+
+                                <p:column headerText="Data Appello" sortBy="#{appello.data}">
+                                    <h:outputText value="#{appello.data}"/>
+                                </p:column>
+
+                                <p:rowExpansion>
+                                    <div class="details-table">
+                                        <h5>Iscritti per #{appello.esame.nome}</h5>
+                                        <p:dataTable var="iscritto" value="#{appello.iscritti}" reflow="true" rowKey="#{iscritto.id}">
+                                            <p:column headerText="Id" sortBy="#{iscritto.id}">
+                                                <h:outputText value="#{iscritto.id}"/>
+                                            </p:column>
+
+                                            <p:column headerText="Nome" sortBy="#{iscritto.nome}">
+                                                <h:outputText value="#{iscritto.nome}"/>
+                                            </p:column>
+
+                                            <p:column headerText="Cognome" sortBy="#{iscritto.cognome}">
+                                                <h:outputText value="#{iscritto.cognome}"/>
+                                            </p:column>
+                                        </p:dataTable>
+                                    </div>
+                                </p:rowExpansion>
+                            </p:dataTable>
+                        </p:outputPanel>
+                    </div>
+                </div>
+            </h:form>
+
+        </div>
+    </ui:define>
+
+</ui:composition>

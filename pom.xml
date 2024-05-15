@@ -62,7 +62,17 @@
             <version>13.0.0</version>
             <classifier>jakarta</classifier>
         </dependency>
-
+        <!-- https://mvnrepository.com/artifact/org.eclipse.persistence/eclipselink -->
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>eclipselink</artifactId>
+            <version>4.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>8.3.0</version>
+        </dependency>
         <!--  APACHE WEBBEANS CDI DEPENDENCIES - serve per primefaces theme 'rain'
     questa configurazione di dipendenze esclude quelle non compatibili con jakarta -->
         <dependency>
@@ -135,13 +145,13 @@
         </dependency>
         <!--  /FINE APACHE WEBBEANS CDI DEPENDENCIES  per Primefaces    -->
     </dependencies>
-<!--    <repositories>-->
-<!--        <repository>-->
-<!--            <id>prime-repo</id>-->
-<!--            <name>PrimeFaces Maven Repository</name>-->
-<!--            <url>http://repository.primefaces.org</url>-->
-<!--        </repository>-->
-<!--    </repositories>-->
+    <!--    <repositories>-->
+    <!--        <repository>-->
+    <!--            <id>prime-repo</id>-->
+    <!--            <name>PrimeFaces Maven Repository</name>-->
+    <!--            <url>http://repository.primefaces.org</url>-->
+    <!--        </repository>-->
+    <!--    </repositories>-->
     <build>
         <finalName>rain</finalName>
         <plugins>

@@ -1,0 +1,101 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="jakarta.faces.html"
+                xmlns:f="jakarta.faces.core"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="title">Registrazione Corsi</ui:define>
+
+    <ui:define name="viewname">
+        <li>UI KIT</li>
+        <li><i class="pi pi-chevron-right"></i></li>
+        <li>
+            <p:link outcome="/pianodistudi">PDS</p:link>
+        </li>
+    </ui:define>
+    <ui:define name="content">
+
+        <p:tooltip/>
+        <p:growl id="growl" showDetail="true"/>
+
+        <div class="grid ui-fluid">
+            <div class="col-12 md:col-12">
+                <div class="card">
+                    <h5>Corsi disponibili</h5>
+                    <h:form>
+                        <p:outputPanel id="grid">
+                            <div class="field">
+                                <span class="ui-inputtext">
+                                    <p:outputLabel for="input-corsiDisponibili" value="corsi"/>
+                                        <p:selectCheckboxMenu id="input-corsiDisponibili" label="--selezionare--" value="#{pianoDiStudiViewController.pianoDiStudiDto.corsiSelectedId}"
+                                                              filter="true" filterMatchMode="startsWith" required="true"
+                                                              requiredMessage="selezionare almeno una scelta se disponibile" hideNoSelectionOption="true">
+                                            <f:selectItem value="#{null}" itemLabel="--selezionare--" noSelectionOption="true"/>
+                                            <f:selectItems value="#{pianoDiStudiViewController.corsiDisponibili}" var="corsoDisponibile"
+                                                           itemLabel="#{corsoDisponibile.nome}/#{corsoDisponibile.anno}/#{corsoDisponibile.docente}" itemValue="#{corsoDisponibile.id}"/>
+                                        </p:selectCheckboxMenu>
+                                    <p:message id="m_precedenze" for="input-corsiDisponibili"/>
+                                </span>
+                            </div>
+                        </p:outputPanel>
+                        <p:commandButton id="submit" action="#{pianoDiStudiViewController.registra()}" value="Registra" binding="#{pianoDiStudiViewController.submitButton}"
+                                         styleClass="mr-2 mb-2" update="submit grid riepilogo growl" rendered="#{pianoDiStudiViewController.rendered}"/>
+                    </h:form>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="card">
+                    <h5>Piano di Studi</h5>
+                    <p:outputPanel id="riepilogo">
+                        <p:dataTable value="#{pianoDiStudiViewController.currentStudent.pianoDiStudi}" var="corsoPds" paginator="true" rows="10" paginatorPosition="bottom" rowKey="#{corsoPds.id}">
+
+                            <p:ajax event="rowToggle" listener="#{pianoDiStudiViewController.onRowToggle}"/>
+
+                            <p:column style="width:2rem">
+                                <p:rowToggler/>
+                            </p:column>
+
+                            <p:column headerText="Nome" sortBy="#{corsoPds.nome}">
+                                <h:outputText value="#{corsoPds.nome}"/>
+                            </p:column>
+
+                            <p:column headerText="Docente" sortBy="#{corsoPds.docente}">
+                                <h:outputText value="#{corsoPds.docente}"/>
+                            </p:column>
+
+                            <p:column headerText="Anno" sortBy="#{corsoPds.anno}">
+                                <h:outputText value="#{corsoPds.anno}"/>
+                            </p:column>
+
+                            <p:rowExpansion>
+                                <div class="details-table">
+                                    <h5>Precedenze per #{corsoPds.nome}</h5>
+                                    <p:dataTable var="corso2" value="#{corsoPds.precedenze}" reflow="true" rowKey="#{corso2.id}">
+                                        <p:column headerText="Id" sortBy="#{corso2.id}">
+                                            <h:outputText value="#{corso2.id}"/>
+                                        </p:column>
+
+                                        <p:column headerText="Nome" sortBy="#{corso2.nome}">
+                                            <h:outputText value="#{corso2.nome}"/>
+                                        </p:column>
+
+                                        <p:column headerText="Docente" sortBy="#{corso2.docente}">
+                                            <h:outputText value="#{corso2.docente}"/>
+                                        </p:column>
+
+                                        <p:column headerText="Anno" sortBy="#{corso2.anno}">
+                                            <h:outputText value="#{corso2.anno}"/>
+                                        </p:column>
+                                    </p:dataTable>
+                                </div>
+                            </p:rowExpansion>
+                        </p:dataTable>
+                    </p:outputPanel>
+                </div>
+            </div>
+
+        </div>
+    </ui:define>
+
+</ui:composition>

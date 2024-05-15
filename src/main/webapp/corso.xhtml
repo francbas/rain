@@ -1,0 +1,163 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="jakarta.faces.html"
+                xmlns:f="jakarta.faces.core"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="title">Registrazione Corsi</ui:define>
+
+    <ui:define name="viewname">
+        <li>UI KIT</li>
+        <li><i class="pi pi-chevron-right"></i></li>
+        <li>
+            <p:link outcome="/corso">CORSI</p:link>
+        </li>
+    </ui:define>
+    <ui:define name="content">
+
+        <p:tooltip/>
+        <p:growl id="growl" showDetail="true"/>
+
+        <div class="grid ui-fluid">
+            <div class="col-12 md:col-8">
+                <div class="card">
+                    <h5>Registrazione Corso</h5>
+                    <h:form>
+                        <p:outputPanel id="grid">
+                            <div class="field">
+                                <span class="ui-inputtext">
+                                    <p:outputLabel for="input-nome" value="Nome corso"/>
+                                    <p:inputText id="input-nome" value="#{corsoViewController.corsoDto.nome}" required="true" requiredMessage="obbligatorio"/>
+                                    <p:message id="m_nome" for="input-nome"/>
+                                </span>
+                            </div>
+                            <div class="field">
+                                <span class="ui-inputtext">
+                                    <p:outputLabel for="input-docente" value="Docente"/>
+                                        <p:selectOneMenu id="input-docente" value="#{corsoViewController.corsoDto.docente}" required="true" requiredMessage="obbligatorio">
+                                            <f:selectItem itemLabel="Select" itemValue=""/>
+                                            <f:selectItem itemLabel="Docente01" itemValue="Docente01"/>
+                                            <f:selectItem itemLabel="Docente02" itemValue="Docente02"/>
+                                            <f:selectItem itemLabel="Docente03" itemValue="Docente03"/>
+                                        </p:selectOneMenu>
+                                    <p:message id="m_deocente" for="input-docente"/>
+                                </span>
+                            </div>
+                            <div class="field">
+                                <span class="ui-inputtext">
+                                    <p:outputLabel for="input-anno" value="Anno"/>
+                                        <p:selectOneMenu id="input-anno" value="#{corsoViewController.corsoDto.anno}" required="true" requiredMessage="obbligatorio">
+                                            <f:selectItem itemLabel="Select" itemValue=""/>
+                                            <f:selectItem itemLabel="2022" itemValue="2022"/>
+                                            <f:selectItem itemLabel="2023" itemValue="2023"/>
+                                            <f:selectItem itemLabel="2024" itemValue="2024"/>
+                                        </p:selectOneMenu>
+                                    <p:message id="m_anno" for="input-anno"/>
+                                </span>
+                            </div>
+                            <div class="field">
+                                <span class="ui-inputtext">
+                                    <p:outputLabel for="input-precedenze" value="Precedenze"/>
+                                        <p:selectCheckboxMenu id="input-precedenze" label="--selezionare--" value="#{corsoViewController.corsoDto.precedenzeId}" hideNoSelectionOption="true"
+                                                              filter="true" filterMatchMode="startsWith" required="false">
+                                            <f:selectItems value="#{corsoViewController.corsiAll}" var="precedenza" itemLabel="#{precedenza.nome}" itemValue="#{precedenza.id}"/>
+                                        </p:selectCheckboxMenu>
+                                    <p:message id="m_precedenze" for="input-precedenze"/>
+                                </span>
+                            </div>
+                        </p:outputPanel>
+                        <p:commandButton id="submit" action="#{corsoViewController.register()}" value="Registra"
+                                         styleClass="mr-2 mb-2" update="grid response riepilogo growl"/>
+                    </h:form>
+                </div>
+            </div>
+            <div class="col-12 md:col-4">
+                <div class="card">
+                    <p:outputPanel id="response">
+                        <div>
+                        <span class="ui-outputlabel">
+                            <p:outputLabel for="reg-id" value="#{corsoViewController.l_id}"/>
+                        </span>
+                            <h:outputText id="reg-id" value="#{corsoViewController.corso.id}"/>
+                        </div>
+                        <div>
+                        <span class="ui-outputlabel">
+                            <p:outputLabel for="reg-nome" value="#{corsoViewController.l_nome}"/>
+                        </span>
+                            <h:outputText id="reg-nome" value="#{corsoViewController.corso.nome}"/>
+                        </div>
+                        <div>
+                        <span class="ui-outputlabel">
+                            <p:outputLabel for="reg-docente" value="#{corsoViewController.l_docente}"/>
+                        </span>
+                            <h:outputText id="reg-docente" value="#{corsoViewController.corso.docente}"/>
+                        </div>
+                        <div>
+                        <span class="ui-outputlabel">
+                            <p:outputLabel for="reg-anno" value="#{corsoViewController.l_anno}"/>
+                        </span>
+                            <h:outputText id="reg-anno" value="#{corsoViewController.corso.anno}"/>
+                        </div>
+                    </p:outputPanel>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="card">
+                    <h5>Riepilogo Corsi</h5>
+                    <p:outputPanel id="riepilogo">
+                        <p:dataTable value="#{corsoViewController.corsiAll}" var="corsoPds" paginator="true" rows="10" paginatorPosition="bottom" rowKey="#{corso.id}">
+
+                            <p:ajax event="rowToggle" listener="#{corsoViewController.onRowToggle}"/>
+
+                            <p:column style="width:2rem">
+                                <p:rowToggler/>
+                            </p:column>
+
+                            <p:column headerText="Nome" sortBy="#{corsoPds.nome}">
+                                <h:outputText value="#{corsoPds.nome}"/>
+                            </p:column>
+
+                            <p:column headerText="Docente" sortBy="#{corsoPds.docente}">
+                                <h:outputText value="#{corsoPds.docente}"/>
+                            </p:column>
+
+                            <p:column headerText="Anno" sortBy="#{corsoPds.anno}">
+                                <h:outputText value="#{corsoPds.anno}"/>
+                            </p:column>
+
+                            <p:rowExpansion>
+                                <div class="orders-subtable">
+                                    <h5>Precedenze per #{corsoPds.nome}</h5>
+                                    <p:dataTable var="corso2" value="#{corsoPds.precedenze}" reflow="true" rowKey="#{corso2.id}">
+                                        <p:column headerText="Id" sortBy="#{corso2.id}">
+                                            <h:outputText value="#{corso2.id}"/>
+                                        </p:column>
+
+                                        <p:column headerText="Nome" sortBy="#{corso2.nome}">
+                                            <h:outputText value="#{corso2.nome}"/>
+                                        </p:column>
+
+                                        <p:column headerText="Docente" sortBy="#{corso2.docente}">
+                                            <h:outputText value="#{corso2.docente}"/>
+                                        </p:column>
+
+                                        <p:column headerText="Anno" sortBy="#{corso2.anno}">
+                                            <h:outputText value="#{corso2.anno}"/>
+                                        </p:column>
+
+                                        <p:column headerText="Status" sortBy="#{order.status}">
+                                            <span class="order-badge order-#{order.status.name().toLowerCase()}">#{order.status}</span>
+                                        </p:column>
+                                    </p:dataTable>
+                                </div>
+                            </p:rowExpansion>
+                        </p:dataTable>
+                    </p:outputPanel>
+                </div>
+            </div>
+
+        </div>
+    </ui:define>
+
+</ui:composition>

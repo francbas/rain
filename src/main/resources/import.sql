@@ -1,0 +1,4 @@
+INSERT INTO db_appelli.CORSO (ANNO, DOCENTE, NOME) VALUES (2024, 'docente01', 'Analisi1'),(2024, 'docente02', 'Analisi2'),(2024, 'docente03', 'Matematica3'),(2023,'docente4','Fondamenti di Informatica');
+INSERT INTO db_appelli.STUDENTE (cognome, email, matricola, nome)VALUES ('cognome01', 'email01', 'matr01', 'nome01'),('cognome02', 'email02', 'matr02', 'nome02'),('cognome03', 'email03', 'matr03', 'nome03'),('cognome04', 'email04', 'matr04', 'nome04'),('cognome05', 'email05', 'matr05', 'nome05'),('cognome06', 'email06', 'matr06', 'nome06');
+INSERT INTO db_appelli.CORSO_CORSO (Corso_ID, precedenze_ID) VALUES (3, 1);
+INSERT INTO db_appelli.APPELLO (DATA, ESAME_ID) VALUES ('2024-05-14 23:12:00.000000',1), ('2024-05-21 23:13:00.000000',2),('2024-05-28 23:13:00.000000',1);

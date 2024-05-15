@@ -2,43 +2,123 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="rain5:war exploded" />
+      <artifact name="rain:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cced6337-6c01-46dc-9fb2-cbe955e68d6a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/rain-theme-5.0.0-jakarta.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/HelloServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/beans.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+    <list default="true" id="cced6337-6c01-46dc-9fb2-cbe955e68d6a" name="Changes" comment="implementate funzionalita dell'esercizio: registrazione nuovo studente, corso, appello, creazione paino di studi, iscrizione ad appelli disponibili">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/domain/Appello.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/domain/Corso.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/domain/Studente.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/domain/StudenteManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/service/AppelloService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/service/CorsoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/service/StudenteService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/AppelloDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/AppelloViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/CorsoDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/CorsoViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/EsameDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/IscrizioneAppelloViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/PianoDiStudiDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/PianoDiStudiViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/SessioneViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/StudenteDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/StudenteViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/import.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/appello.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/corso.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/iscrizioneappello.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/pianodistudi.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/studente.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/francescobasile/rain5/domain/StudenteManagerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/francescobasile/rain5/view/PianoDiStudiDtoTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/francescobasile/rain5/view/PianoDiStudiViewControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/domain/Country.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/domain/demo/Country.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/domain/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/domain/demo/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/domain/CustomerStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/domain/demo/CustomerStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/domain/Document.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/domain/demo/Document.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/domain/InventoryStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/domain/demo/InventoryStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/domain/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/domain/demo/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/domain/OrderStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/domain/demo/OrderStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/domain/Photo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/domain/demo/Photo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/domain/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/domain/demo/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/domain/Representative.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/domain/demo/Representative.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/service/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/service/demo/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/service/DocumentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/service/demo/DocumentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/service/demo/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/service/PhotoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/service/demo/PhotoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/service/demo/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/CalendarDemoView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/demo/CalendarDemoView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/ChartDemoView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/demo/ChartDemoView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/ChronolineView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/demo/ChronolineView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/CrudDemoView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/demo/CrudDemoView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/DashboardView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/demo/DashboardView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/DataTableDemoView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/demo/DataTableDemoView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/FileDemoView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/demo/FileDemoView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/FormDemoView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/demo/FormDemoView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/FreeBlocksDemoView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/demo/FreeBlocksDemoView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/GridDemoView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/demo/GridDemoView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/GuestPreferences.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/demo/GuestPreferences.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/InvoiceDemoView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/demo/InvoiceDemoView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/ListDemoView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/demo/ListDemoView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/MediaDemoView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/demo/MediaDemoView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/MessageDemoView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/demo/MessageDemoView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/OverlayDemoView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/demo/OverlayDemoView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/PrimeIconsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/demo/PrimeIconsView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/TreeDemoView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/demo/TreeDemoView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/topbar.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/topbar.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/table.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/table.xhtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="JUnit5 Test Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;francbas&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/francbas/rain.git&quot;,
+    &quot;accountId&quot;: &quot;ff57d8d2-fcff-409a-a2a2-0ca182cd9d47&quot;
+  }
+}</component>
+  <component name="InvalidFacetManager">
+    <ignored-facets>
+      <facet id="rain/invalid/JPA" />
+    </ignored-facets>
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
-    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_INFO" value="false" />
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
@@ -60,41 +140,68 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;GlassFish Server.GlassFish 7.0.14.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.rain [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.rain [compile].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/francescobasile/IdeaProjects/primefaces/rain/src/main/webapp&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.1831369&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.24401914&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "GlassFish Server.GlassFish 7.0.12.executor": "Run",
+    "GlassFish Server.GlassFish 7.0.14.executor": "Run",
+    "JUnit.PianoDiStudiDtoTest.extractPdS.executor": "Run",
+    "JUnit.PianoDiStudiViewControllerTest.registra.executor": "Debug",
+    "JUnit.StudenteManagerTest.creaPianoDiStudi.executor": "Debug",
+    "Maven.rain [clean].executor": "Run",
+    "Maven.rain [compile].executor": "Run",
+    "Maven.rain [install].executor": "Run",
+    "Maven.rain [test].executor": "Run",
+    "Maven.rain [validate].executor": "Run",
+    "Maven.rain [verify].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/francescobasile/IdeaProjects/exe-lez4-appelli-webapp/src/main/webapp",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.1831369",
+    "project.structure.side.proportion": "0.30861244",
+    "settings.editor.selected.configurable": "preferences.sourceCode.Java",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/webapp" />
       <recent name="$PROJECT_DIR$" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/main/webapp" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.francescobasile.rain5.view" />
+      <recent name="org.francescobasile.rain5.domain" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="GlassFish Server.GlassFish 7.0.14">
     <configuration name="GlassFish 7.0.14" type="GlassfishConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="GlassFish 7.0.14" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="OPEN_IN_BROWSER" value="false" />
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
-      <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
-        <artifact name="rain5:war exploded">
+        <artifact name="rain:war exploded">
           <settings />
         </artifact>
       </deployment>
@@ -158,29 +265,71 @@
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
-          <artifact name="rain5:war exploded" />
+          <artifact name="rain:war exploded" />
         </option>
       </method>
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
+    <configuration name="PianoDiStudiDtoTest.extractSelectedCorsiObj" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="rain" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.francescobasile.rain5.view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.francescobasile.rain5.view" />
+      <option name="MAIN_CLASS_NAME" value="org.francescobasile.rain5.view.PianoDiStudiDtoTest" />
+      <option name="METHOD_NAME" value="extractSelectedCorsiObj" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+    <configuration name="PianoDiStudiViewControllerTest.registra" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="rain" />
-      <option name="filePath" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.francescobasile.rain5.view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.francescobasile.rain5.view" />
+      <option name="MAIN_CLASS_NAME" value="org.francescobasile.rain5.view.PianoDiStudiViewControllerTest" />
+      <option name="METHOD_NAME" value="registra" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="StudenteManagerTest.creaPianoDiStudi" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="rain" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.francescobasile.rain5.domain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.francescobasile.rain5.domain" />
+      <option name="MAIN_CLASS_NAME" value="org.francescobasile.rain5.domain.StudenteManagerTest" />
+      <option name="METHOD_NAME" value="creaPianoDiStudi" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.PianoDiStudiViewControllerTest.registra" />
+        <item itemvalue="JUnit.PianoDiStudiDtoTest.extractSelectedCorsiObj" />
+        <item itemvalue="JUnit.StudenteManagerTest.creaPianoDiStudi" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
       </set>
     </attachedChunks>
   </component>
@@ -196,6 +345,14 @@
       <workItem from="1714160521731" duration="3011000" />
       <workItem from="1714168030004" duration="4476000" />
       <workItem from="1714236423254" duration="3620000" />
+      <workItem from="1714253336092" duration="3470000" />
+      <workItem from="1714259877260" duration="3939000" />
+      <workItem from="1714501956365" duration="10000" />
+      <workItem from="1714502537901" duration="1213000" />
+      <workItem from="1714589352810" duration="6593000" />
+      <workItem from="1714669707448" duration="60917000" />
+      <workItem from="1715183807078" duration="80235000" />
+      <workItem from="1715722989196" duration="14536000" />
     </task>
     <servers />
   </component>
@@ -215,5 +372,22 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="implementate funzionalita dell'esercizio: registrazione nuovo studente, corso, appello, creazione paino di studi, iscrizione ad appelli disponibili" />
+    <option name="LAST_COMMIT_MESSAGE" value="implementate funzionalita dell'esercizio: registrazione nuovo studente, corso, appello, creazione paino di studi, iscrizione ad appelli disponibili" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/francescobasile/rain5/view/IscrizioneAppelloViewController.java</url>
+          <line>58</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

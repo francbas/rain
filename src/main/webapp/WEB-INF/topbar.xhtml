@@ -1,12 +1,12 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:h="jakarta.faces.html"
-    xmlns:f="jakarta.faces.core" xmlns:ui="jakarta.faces.facelets"
-    xmlns:p="http://primefaces.org/ui" xmlns:po="http://primefaces.org/rain">
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:p="http://primefaces.org/ui">
 
     <div class="layout-topbar">
         <div class="layout-topbar-wrapper">
             <div class="layout-topbar-left">
                 <h:link id="logolink" outcome="/dashboard" styleClass="layout-topbar-logo">
-                    <p:graphicImage name="images/#{ guestPreferences.lightLogo ? 'logo-rain-white.svg' : 'logo-rain-black.svg'}"  library="rain-layout" />
+                    <p:graphicImage name="images/#{ guestPreferences.lightLogo ? 'logo-rain-white.svg' : 'logo-rain-black.svg'}" library="rain-layout"/>
                 </h:link>
             </div>
             <div class="layout-topbar-right">
@@ -16,18 +16,18 @@
                             <span></span>
                             <span></span>
                             <span></span>
-                          </div>
-                          <div class="menu-button-times">
+                        </div>
+                        <div class="menu-button-times">
                             <span></span>
                             <span></span>
-                          </div>
+                        </div>
                     </a>
                 </div>
                 <ul class="layout-topbar-actions">
                     <li class="search-item topbar-item">
                         <h:form onsubmit="return false;">
                             <h:panelGroup styleClass="md-inputfield search-input-wrapper">
-                                <p:inputText placeholder="Search..." />
+                                <p:inputText placeholder="Search..."/>
                                 <i class="pi pi-search"></i>
                             </h:panelGroup>
                         </h:form>
@@ -91,13 +91,13 @@
                         <a href="#">
                             <i class="topbar-icon pi pi-comment"></i>
                         </a>
-                        <ul >
+                        <ul>
                             <li class="layout-submenu-header">
                                 <h6 class="header-text">Messages </h6>
                             </li>
                             <li>
                                 <a tabindex="0">
-                                    <p:graphicImage name="images/dashboard/avatar-1.png" library="demo" />
+                                    <p:graphicImage name="images/dashboard/avatar-1.png" library="demo"/>
                                     <div class="notification-item">
                                         <div class="notification-summary">New Order</div>
                                         <div class="notification-detail">You have <strong>3</strong> new orders.</div>
@@ -106,7 +106,7 @@
                             </li>
                             <li>
                                 <a tabindex="0">
-                                    <p:graphicImage name="images/dashboard/avatar-2.png" library="demo" />
+                                    <p:graphicImage name="images/dashboard/avatar-2.png" library="demo"/>
                                     <div class="notification-item">
                                         <div class="notification-summary">Withdrawn Completed</div>
                                         <div class="notification-detail">Funds are on their way.</div>
@@ -115,7 +115,7 @@
                             </li>
                             <li>
                                 <a tabindex="0">
-                                    <p:graphicImage name="images/dashboard/avatar-3.png" library="demo" />
+                                    <p:graphicImage name="images/dashboard/avatar-3.png" library="demo"/>
                                     <div class="notification-item">
                                         <div class="notification-summary">Monthly Reports</div>
                                         <div class="notification-detail">New reports are ready.</div>
@@ -124,7 +124,7 @@
                             </li>
                             <li>
                                 <a tabindex="0">
-                                    <p:graphicImage name="images/dashboard/avatar-2.png" library="demo" />
+                                    <p:graphicImage name="images/dashboard/avatar-2.png" library="demo"/>
                                     <div class="notification-item">
                                         <div class="notification-summary">Comments</div>
                                         <div class="notification-detail"><strong>2</strong> new comments.</div>
@@ -133,7 +133,7 @@
                             </li>
                             <li>
                                 <a tabindex="0">
-                                    <p:graphicImage name="images/dashboard/avatar-4.png" library="demo" />
+                                    <p:graphicImage name="images/dashboard/avatar-4.png" library="demo"/>
                                     <div class="notification-item">
                                         <div class="notification-summary">Chargeback Request</div>
                                         <div class="notification-detail"><strong>1</strong> to review.</div>
@@ -146,7 +146,7 @@
                         <a href="#">
                             <i class="topbar-icon pi pi-tag"></i>
                         </a>
-                        <ul >
+                        <ul>
                             <li class="layout-submenu-header">
                                 <h6 class="header-text">Sales </h6>
                             </li>
@@ -200,9 +200,13 @@
                     <ui:fragment rendered="#{guestPreferences.profileMode == 'popup' ? true : false}">
                         <li class="topbar-item user-profile">
                             <a href="#">
-                                <p:graphicImage name="images/avatar-profilemenu.png" library="rain-layout" />
+                                <p:graphicImage name="images/avatar-profilemenu.png" library="rain-layout"/>
                             </a>
                             <ul>
+                                <li>
+                                    <h:outputText rendered="#{sessioneViewController.currentStudente != null}"
+                                                  value="[ID:#{sessioneViewController.currentStudente.id}] #{sessioneViewController.currentStudente.nome} #{sessioneViewController.currentStudente.cognome}"/>
+                                </li>
                                 <li>
                                     <a href="#">
                                         <i class="pi pi-user"></i>
@@ -230,14 +234,14 @@
                             </ul>
                         </li>
                     </ui:fragment>
-                 
+
                 </ul>
                 <a href="#" class="layout-rightpanel-button">
                     <i class="pi pi-ellipsis-v"></i>
                 </a>
             </div>
         </div>
-       
+
     </div>
 
 </ui:composition>

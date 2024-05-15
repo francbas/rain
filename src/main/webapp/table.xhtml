@@ -6,7 +6,7 @@
                 template="/WEB-INF/template.xhtml">
 
     <ui:define name="head">
-        <h:outputStylesheet name="css/flags/flags.css" library="demo" />
+        <h:outputStylesheet name="css/flags/flags.css" library="demo"/>
     </ui:define>
 
     <ui:define name="title">DataTable</ui:define>
@@ -27,32 +27,32 @@
                         <h5>Default</h5>
                         <p>Pagination, sorting, filtering and checkbox selection.</p>
                         <p:dataTable widgetVar="customersDT" var="customer" value="#{dataTableDemoView.customers1}" reflow="true"
-                                    selection="#{dataTableDemoView.selectedCustomers}" rowKey="#{customer.id}" 
-                                    paginator="true" rows="10" paginatorPosition="bottom" rowSelectMode="add">
+                                     selection="#{dataTableDemoView.selectedCustomers}" rowKey="#{customer.id}"
+                                     paginator="true" rows="10" paginatorPosition="bottom" rowSelectMode="add">
                             <f:facet name="header">
                                 <div class="customers-table-header">
                                     <span style="font-weight: bold">CUSTOMERS</span>
-                                
+
                                     <span class="ui-input-icon-left filter-container">
                                         <i class="pi pi-search"/>
-                                        <p:inputText id="globalFilter" onkeyup="PF('customersDT').filter()" placeholder="Global Search"/>
+                                        <p:inputText id="globalFilter2" onkeyup="PF('customersDT').filter()" placeholder="Global Search"/>
                                     </span>
                                 </div>
                             </f:facet>
-                            <p:column selectionMode="multiple" />
+                            <p:column selectionMode="multiple"/>
                             <p:column headerText="Name" sortBy="#{customer.name}" filterBy="#{customer.name}">
-                                <h:outputText value="#{customer.name}" />
+                                <h:outputText value="#{customer.name}"/>
                             </p:column>
                             <p:column headerText="Country" sortBy="#{customer.country.name}" filterBy="#{customer.country.name}">
                                 <span class="flag flag-#{customer.country.code}" style="width: 30px; height: 20px"/>
-                                <h:outputText style="vertical-align: middle; margin-left: .5rem" value="#{customer.country.name}" />
+                                <h:outputText style="vertical-align: middle; margin-left: .5rem" value="#{customer.country.name}"/>
                             </p:column>
                             <p:column headerText="Representative" sortBy="#{customer.representative.name}" filterBy="#{customer.representative.name}">
-                                <p:graphicImage name="images/avatar/#{customer.representative.image}" library="demo" width="32" style="vertical-align: middle" />
-                                <h:outputText style="vertical-align: middle; margin-left: .5rem" value="#{customer.representative.name}" />
+                                <p:graphicImage name="images/avatar/#{customer.representative.image}" library="demo" width="32" style="vertical-align: middle"/>
+                                <h:outputText style="vertical-align: middle; margin-left: .5rem" value="#{customer.representative.name}"/>
                             </p:column>
                             <p:column headerText="Join Date" sortBy="#{customer.date}" filterBy="#{customer.date}">
-                                <h:outputText value="#{customer.date}" />
+                                <h:outputText value="#{customer.date}"/>
                             </p:column>
                             <p:column headerText="Status" sortBy="#{customer.status}" filterBy="#{customer.status}">
                                 <span class="customer-badge status-#{customer.status.name().toLowerCase()}">#{customer.status}</span>
@@ -61,7 +61,7 @@
                                 <p:progressBar value="#{customer.activity}" displayOnly="true" style="height: .5rem"/>
                             </p:column>
                             <p:column style="width: 8rem; text-align: center;">
-                                <p:button icon="pi pi-cog" styleClass="ui-button-secondary" />
+                                <p:button icon="pi pi-cog" styleClass="ui-button-secondary"/>
                             </p:column>
                         </p:dataTable>
                     </div>
@@ -70,14 +70,21 @@
                 <div class="col-12">
                     <div class="card">
                         <h5>Customized</h5>
-                        <p>Scrollable table with gridlines (<mark>.ui-datatable-gridlines</mark>), striped rows (<mark>.ui-datatable-striped</mark>) and smaller paddings (<mark>ui-datatable-sm</mark>).</p>
+                        <p>Scrollable table with gridlines (
+                            <mark>.ui-datatable-gridlines</mark>
+                            ), striped rows (
+                            <mark>.ui-datatable-striped</mark>
+                            ) and smaller paddings (
+                            <mark>ui-datatable-sm</mark>
+                            ).
+                        </p>
                         <p:dataTable widgetVar="customersDT2" var="customer" value="#{dataTableDemoView.customers2}" selectionMode="single" reflow="true"
-                                    selection="#{dataTableDemoView.selectedCustomer}" rowKey="#{customer.id}" scrollable="true" scrollHeight="500"
-                                    styleClass="ui-datatable-striped ui-datatable-sm ui-datatable-gridlines">
+                                     selection="#{dataTableDemoView.selectedCustomer}" rowKey="#{customer.id}" scrollable="true" scrollHeight="500"
+                                     styleClass="ui-datatable-striped ui-datatable-sm ui-datatable-gridlines">
                             <f:facet name="header">
                                 <div class="customers-table-header">
                                     <span style="font-weight: bold">CUSTOMERS</span>
-                                
+
                                     <span class="ui-input-icon-left filter-container">
                                         <i class="pi pi-search"/>
                                         <p:inputText id="globalFilter" onkeyup="PF('customersDT2').filter()" placeholder="Search"/>
@@ -85,18 +92,18 @@
                                 </div>
                             </f:facet>
                             <p:column headerText="Name" sortBy="#{customer.name}" filterBy="#{customer.name}">
-                                <h:outputText value="#{customer.name}" />
+                                <h:outputText value="#{customer.name}"/>
                             </p:column>
                             <p:column headerText="Country" sortBy="#{customer.country.name}" filterBy="#{customer.country.name}">
                                 <span class="flag flag-#{customer.country.code}" style="width: 30px; height: 20px"/>
-                                <h:outputText style="vertical-align: middle; margin-left: .5rem" value="#{customer.country.name}" />
+                                <h:outputText style="vertical-align: middle; margin-left: .5rem" value="#{customer.country.name}"/>
                             </p:column>
                             <p:column headerText="Representative" sortBy="#{customer.representative.name}" filterBy="#{customer.representative.name}">
-                                <p:graphicImage name="images/avatar/#{customer.representative.image}" library="demo" width="32" style="vertical-align: middle" />
-                                <h:outputText style="vertical-align: middle; margin-left: .5rem" value="#{customer.representative.name}" />
+                                <p:graphicImage name="images/avatar/#{customer.representative.image}" library="demo" width="32" style="vertical-align: middle"/>
+                                <h:outputText style="vertical-align: middle; margin-left: .5rem" value="#{customer.representative.name}"/>
                             </p:column>
                             <p:column headerText="Join Date" sortBy="#{customer.date}" filterBy="#{customer.date}">
-                                <h:outputText value="#{customer.date}" />
+                                <h:outputText value="#{customer.date}"/>
                             </p:column>
                             <p:column headerText="Status" sortBy="#{customer.status}" filterBy="#{customer.status}">
                                 <span class="customer-badge status-#{customer.status.name().toLowerCase()}">#{customer.status}</span>
@@ -111,9 +118,9 @@
                 <div class="col-12">
                     <div class="card">
                         <h5>Row Expansion</h5>
-                        <p:dataTable var="product" value="#{dataTableDemoView.products1}" paginator="true" rows="10" paginatorPosition="bottom" rowKey="#{product.id}">
+                        <p:dataTable var="corsoPds" value="#{corsoViewController.corsiAll}" paginator="true" rows="10" paginatorPosition="bottom" rowKey="#{product.id}">
 
-                            <p:ajax event="rowToggle" listener="#{crudDemoView.onRowToggle}" />
+                            <p:ajax event="rowToggle" listener="#{crudDemoView.onRowToggle}"/>
 
                             <p:column style="width:2rem">
                                 <p:rowToggler/>
@@ -140,7 +147,7 @@
                             </p:column>
 
                             <p:column headerText="Status" sortBy="#{product.inventoryStatus}">
-                                <h:outputText styleClass="product-badge status-#{product.inventoryStatus.name().toLowerCase()}" value="#{product.inventoryStatus.text}" />
+                                <h:outputText styleClass="product-badge status-#{product.inventoryStatus.name().toLowerCase()}" value="#{product.inventoryStatus.text}"/>
                             </p:column>
 
                             <p:rowExpansion>
@@ -148,20 +155,20 @@
                                     <h5>Orders for #{product.name}</h5>
                                     <p:dataTable var="order" value="#{product.orders}" reflow="true" rowKey="#{order.id}">
                                         <p:column headerText="Id" sortBy="#{order.id}">
-                                            <h:outputText value="#{order.id}" />
+                                            <h:outputText value="#{order.id}"/>
                                         </p:column>
 
                                         <p:column headerText="Customer" sortBy="#{order.customer}">
-                                            <h:outputText value="#{order.customer}" />
+                                            <h:outputText value="#{order.customer}"/>
                                         </p:column>
 
                                         <p:column headerText="Date" sortBy="#{order.date}">
-                                            <h:outputText value="#{order.date}" />
+                                            <h:outputText value="#{order.date}"/>
                                         </p:column>
 
                                         <p:column headerText="Amount" sortBy="#{order.amount}">
                                             <h:outputText value="#{order.amount}">
-                                                <f:convertNumber currencySymbol="$" type="currency" />
+                                                <f:convertNumber currencySymbol="$" type="currency"/>
                                             </h:outputText>
                                         </p:column>
 
@@ -170,7 +177,7 @@
                                         </p:column>
 
                                         <p:column style="width: 3.5rem">
-                                            <p:commandButton icon="pi pi-search" />
+                                            <p:commandButton icon="pi pi-search"/>
                                         </p:column>
                                     </p:dataTable>
                                 </div>
